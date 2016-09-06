@@ -1,0 +1,10 @@
+FROM alpine:latest
+MAINTAINER "gabo" <aguamala@deobieta.com>
+RUN apk --no-cache add bash py-pip &&\
+     pip install --upgrade pip &&\
+     pip install awscli
+
+COPY docker-entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+CMD ["aws","--version"]
+ENTRYPOINT ["/entrypoint.sh"]
