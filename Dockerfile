@@ -6,7 +6,7 @@ RUN yum install -y python-pip &&\
      pip install awscli &&\
      yum clean all
 
-COPY docker-entrypoint.sh /entrypoint.sh
+COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 CMD ["aws","--version"]
 ENTRYPOINT ["/entrypoint.sh"]

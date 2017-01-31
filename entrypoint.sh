@@ -5,8 +5,7 @@ set -e
 
 if [ ! -f /root/.aws/credentials ] && [ ! -f /root/.boto ]; then
     if [[ -z "$AWS_ACCESS_KEY_ID" ]] || [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
-        echo >&2 'error: missing AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY environment variables'
-        exit 1
+        echo >&2 'warning: missing AWS_ACCESS_KEY_ID or AWS_SECRET_ACCESS_KEY environment variables'
     fi
 fi
 
